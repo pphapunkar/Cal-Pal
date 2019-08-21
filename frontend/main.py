@@ -1,5 +1,7 @@
 from flask import Flask, render_template, request, redirect, abort, jsonify
 
+URL = 'https://backend-dot-cal-pal-250416.appspot.com/Events'
+
 app = Flask(__name__)
 @app.route("/")
 def home():
@@ -8,11 +10,16 @@ def home():
 
 @app.route("/Events")
 def events():
+    data = request.get(URL + '/Events')
+    print(data)
     return render_template("Events.html")
 
 
-@app.route("/create")
+@app.route("/create", methods=['POST'])
 def createvent():
+    url = URL + '/create'
+    data = request.form.to_dict(flat=True)
+    print(request.post(url, data=data))
     return render_template("create.html")
 
 
