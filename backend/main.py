@@ -19,13 +19,13 @@ def read_events():
     return json.dumps(db.get_events(), indent=4, sort_keys=True, default=str), 200
 
 
-@app.route('/Events/add/<id>', methods=['GET'])
+@app.route('/Events/create/<id>', methods=['POST'])
 def create_event(id):
     print('backend service adding new happening')
     data = flask.request.form.to_dict(flat=True)
     doc = db.add_Event(data, id)
-    return flask.jsonify({'ID': doc}), 201
-
+    return flask.jsonify({'ID': doc}), 200
+    return doc
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8085, debug=True)

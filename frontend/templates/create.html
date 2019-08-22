@@ -2,7 +2,8 @@
 Create an Event
 {% endblock %}
 {% block content %}
-<div><form>
+<div>
+    
     <form class="form-horizontal" action="/Events/create" method="POST">
         Event Name:<br>
         <input type="string" name="eventname"><br> 
@@ -10,12 +11,7 @@ Create an Event
         <input type="string" name="eventdescription"><br>
         Event Date:<br>
         <input type="datetime" name="eventdatetime"><br>
+        <input type="submit">
     </form>
-     <p>
-        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent"
-            type="submit">
-            Submit
-        </button>
-    </p>
 </div>
 {%endblock%}

@@ -19,8 +19,11 @@ def addEvent():
 @app.route("/Events/create", methods = ['POST'])
 def createvent():
     print('URL--' + URL)
-    url = URL + '/events/add/' + str(uuid.uuid4())
+    url = URL + '/create/' +str(uuid.uuid4())
+    print('Passed URL' + url)
     data = request.form.to_dict(flat=True)
+    print(data)
+    requests.post(url, data=data)
     print(requests.post(url, data=data))
     return redirect('/')
 if __name__ == '__main__':

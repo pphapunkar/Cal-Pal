@@ -1,10 +1,9 @@
-from google.cloud import firestore
 from flask import abort
+from google.cloud import firestore
 import json
 import datetime
 
 EVENTS = firestore.Client().collection('Events')
-
 
 def get_events():
     print('Retrieving events from firestore')
@@ -12,17 +11,17 @@ def get_events():
     ret = []
     for doc in docs:
         d = doc.to_dict()
-        d['ID'] = doc.id
+        d['id'] = doc.id
         ret.append(d)
     return ret
 
 
 def add_Event(data, ID):
-    print('adding a new event' + id + ' to firestore')
+    print('adding a new event' + ID + ' to firestore')
     data['date_added'] = datetime.datetime.now()
     #data['likes'] = 0
-    EVENTS.document(id).set(data)
-    return id
+    EVENTS.document(ID).set(data)
+    return ID
 
 
 def _ensure_Events(ID):
