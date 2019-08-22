@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, abort, jsonify
 import requests
+import uuid
 URL = 'https://backend-dot-cal-pal-250416.appspot.com/Events'
 
 app = Flask(__name__)
