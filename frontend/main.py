@@ -7,11 +7,13 @@ app = Flask(__name__)
 @app.route("/")
 def home():
     return render_template("home.html")
+
 @app.route("/Events")
 def events():
-    data = request.get(URL)
+    data = requests.get(URL).content
     print(data)
-    return render_template("Events.html")
+    return render_template("Events.html", data = data)
+
 @app.route("/addEvents")  
 def addEvent():
     return render_template("create.html")
