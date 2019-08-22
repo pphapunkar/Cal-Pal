@@ -2,15 +2,16 @@
 Create an Event
 {% endblock %}
 {% block content %}
-<div><form>
-    <form action="home.html">
-    Event Name:<br>
-    <input type="string" name="eventname"><br> 
-    Event Description:<br>
-    <input type="string" name="eventdescription"><br>
-    Event Date:<br>
-    <input type="datetime" name="eventdatetime"><br>
-    <input type="submit"></input>
+<div>
+    
+    <form class="form-horizontal" action="/Events/create" method="POST">
+        Event Name:<br>
+        <input type="string" name="eventname"><br> 
+        Event Description:<br>
+        <input type="string" name="eventdescription"><br>
+        Event Date:<br>
+        <input type="datetime" name="eventdatetime"><br>
+        <input type="submit">
     </form>
 </div>
 {%endblock%}
